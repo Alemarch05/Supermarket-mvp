@@ -38,7 +38,49 @@ namespace Supermarket_mvp.Views
                 }
             };
 
-           
+            BtnNew.Click += delegate
+            {
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPageCategoryList);
+                tabControl1.TabPages.Add(tabPageCategoryDetail);
+                tabPageCategoryDetail.Text = "Add New Category";
+            };
+            BtnEdit.Click += delegate
+            {
+                EditEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPageCategoryList);
+                tabControl1.TabPages.Add(tabPageCategoryDetail);
+                tabPageCategoryDetail.Text = "Edit Category";
+            };
+            BtnDelete.Click += delegate
+            {
+                var result = MessageBox.Show("Are you sure you want to delete this Category?", "Delete Category", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(message);
+
+                }
+            };
+            BtnSave.Click += delegate
+            {
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+
+                if (isSucessful)
+                {
+                    tabControl1.TabPages.Remove(tabPageCategoryDetail);
+                    tabControl1.TabPages.Add(tabPageCategoryList);
+
+
+                }
+                MessageBox.Show(message);
+            };
+            BtnCancel.Click += delegate
+            {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPageCategoryDetail);
+                tabControl1.TabPages.Add(tabPageCategoryList);
+            };
         }
 
         public string CategoryId

@@ -162,6 +162,7 @@
             DgCategory.AllowUserToAddRows = false;
             DgCategory.AllowUserToDeleteRows = false;
             DgCategory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            DgCategory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DgCategory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DgCategory.Location = new Point(20, 90);
             DgCategory.Name = "DgCategory";
@@ -260,8 +261,10 @@
             // 
             TxtCategoryId.Location = new Point(30, 42);
             TxtCategoryId.Name = "TxtCategoryId";
+            TxtCategoryId.ReadOnly = true;
             TxtCategoryId.Size = new Size(100, 23);
             TxtCategoryId.TabIndex = 2;
+            TxtCategoryId.Text = "0";
             // 
             // BtnSave
             // 

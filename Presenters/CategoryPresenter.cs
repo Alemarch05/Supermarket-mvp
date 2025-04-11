@@ -55,12 +55,12 @@ namespace Supermarket_mvp.Presenters
                 if (view.IsEdit)
                 {
                     repository.Edit(Category);
-                    view.Message = "Pay mode edited successfully";
+                    view.Message = "Category edited successfully";
                 }
                 else
                 {
                     repository.Add(Category);
-                    view.Message = "Pay mode added successfully";
+                    view.Message = "Category added successfully";
                 }
                 view.IsSucessful = true;
                 LoadAllCategoryList();
@@ -107,7 +107,7 @@ namespace Supermarket_mvp.Presenters
                 var Category = (CategoryModel)categoryBindingSource.Current;
                 repository.Delete(Category.Id);
                 view.IsSucessful = true;
-                view.Message = "Pay Mode Delete Succesfully";
+                view.Message = "Category Delete Succesfully";
                 LoadAllCategoryList();
             }
             catch (Exception ex)
