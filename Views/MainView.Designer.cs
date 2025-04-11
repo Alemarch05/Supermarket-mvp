@@ -32,12 +32,14 @@
             BtnExit = new Button();
             BtnPayMode = new Button();
             pictureBox1 = new PictureBox();
+            BtnCategory = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(BtnCategory);
             panel1.Controls.Add(BtnExit);
             panel1.Controls.Add(BtnPayMode);
             panel1.Controls.Add(pictureBox1);
@@ -62,7 +64,7 @@
             // 
             BtnPayMode.BackgroundImage = Properties.Resources.buy11;
             BtnPayMode.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnPayMode.Location = new Point(42, 130);
+            BtnPayMode.Location = new Point(42, 126);
             BtnPayMode.Name = "BtnPayMode";
             BtnPayMode.Size = new Size(168, 85);
             BtnPayMode.TabIndex = 1;
@@ -77,6 +79,16 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            // 
+            // BtnCategory
+            // 
+            BtnCategory.BackgroundImage = Properties.Resources.category_list_svgrepo_com;
+            BtnCategory.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnCategory.Location = new Point(42, 217);
+            BtnCategory.Name = "BtnCategory";
+            BtnCategory.Size = new Size(168, 73);
+            BtnCategory.TabIndex = 3;
+            BtnCategory.UseVisualStyleBackColor = true;
             // 
             // MainView
             // 
@@ -99,5 +111,6 @@
         private Button BtnPayMode;
         private PictureBox pictureBox1;
         private Button BtnExit;
+        private Button BtnCategory;
     }
 }
