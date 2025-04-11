@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            BtnExit = new Button();
             BtnPayMode = new Button();
             pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
@@ -37,6 +38,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(BtnExit);
             panel1.Controls.Add(BtnPayMode);
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Left;
@@ -45,13 +47,24 @@
             panel1.Size = new Size(263, 450);
             panel1.TabIndex = 0;
             // 
+            // BtnExit
+            // 
+            BtnExit.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            BtnExit.BackgroundImage = Properties.Resources.salida;
+            BtnExit.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnExit.Location = new Point(42, 363);
+            BtnExit.Name = "BtnExit";
+            BtnExit.Size = new Size(168, 75);
+            BtnExit.TabIndex = 2;
+            BtnExit.UseVisualStyleBackColor = true;
+            // 
             // BtnPayMode
             // 
             BtnPayMode.BackgroundImage = Properties.Resources.buy11;
             BtnPayMode.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnPayMode.Location = new Point(19, 135);
+            BtnPayMode.Location = new Point(42, 130);
             BtnPayMode.Name = "BtnPayMode";
-            BtnPayMode.Size = new Size(206, 113);
+            BtnPayMode.Size = new Size(168, 85);
             BtnPayMode.TabIndex = 1;
             BtnPayMode.UseVisualStyleBackColor = true;
             // 
@@ -85,5 +98,6 @@
         private Panel panel1;
         private Button BtnPayMode;
         private PictureBox pictureBox1;
+        private Button BtnExit;
     }
 }

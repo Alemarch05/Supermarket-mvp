@@ -278,8 +278,10 @@
             TxtPayModeId.Location = new Point(20, 39);
             TxtPayModeId.Name = "TxtPayModeId";
             TxtPayModeId.PlaceholderText = "Pay Mode Id";
+            TxtPayModeId.ReadOnly = true;
             TxtPayModeId.Size = new Size(100, 23);
             TxtPayModeId.TabIndex = 1;
+            TxtPayModeId.Text = "0";
             // 
             // label3
             // 
