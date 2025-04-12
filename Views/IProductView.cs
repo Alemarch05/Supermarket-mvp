@@ -10,9 +10,9 @@ namespace Supermarket_mvp.Views
     {
         string ProductId { get; set; }
         string ProductName { get; set; }
-        decimal ProductPrice { get; set; }
-        int ProductStock { get; set; }
-        int CategoryId { get; set; }
+        string ProductPrice { get; set; }
+        string ProductStock { get; set; }
+        string CategoryId { get; set; }
         string SearchValue { get; set; }
         bool IsEdit { get; set; }
         bool IsSucessful { get; set; }
