@@ -8,5 +8,11 @@ namespace Supermarket_mvp.Models
 {
     interface ICustomerRepository
     {
+        void Add(CustomerModel customerModel);
+        void Edit(CustomerModel customerModel);
+        void Delete(int id);
+
+        IEnumerable<CustomerModel> GetAll();
+        IEnumerable<CustomerModel> GetByValue(string value);
     }
 }
