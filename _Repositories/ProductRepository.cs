@@ -16,19 +16,56 @@ namespace Supermarket_mvp._Repositories
         {
             this.connectionString = coonectionString;
         }
-        public void Add(ProductModel product)
+        public void Add(ProductModel productModel)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "INSERT INTO Product VALUES(@name,@price,@stock,@categoty_id)";
+                command.Parameters.Add("@name", SqlDbType.NVarChar).Value = productModel.Name;
+                command.Parameters.Add("@price", SqlDbType.NVarChar).Value = productModel.Price;
+                command.Parameters.Add("@stock", SqlDbType.Int).Value = productModel.Stock;
+                command.Parameters.Add("@category_id", SqlDbType.Int).Value = productModel.Category_Id;
+
+
+                command.ExecuteNonQuery();
+            }
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "DELETE FROM PayMode WHERE Product_Id=@id";
+                command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                command.ExecuteNonQuery();
+            }
         }
 
-        public void Edit(ProductModel product)
+        public void Edit(ProductModel productModel)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"UPDATE Product
+                                        SET Product_Name=@name,Product_Price=@price,Product_Stock=@stock,Category_Id=@category_id
+                                        WHERE Product_Id=@id";
+                command.Parameters.Add("@name", SqlDbType.NVarChar).Value = productModel.Name;
+                command.Parameters.Add("@price", SqlDbType.NVarChar).Value = productModel.Price;
+                command.Parameters.Add("@stock", SqlDbType.Int).Value = productModel.Stock;
+                command.Parameters.Add("@category_id", SqlDbType.Int).Value = productModel.Category_Id;
+                command.Parameters.Add("@id", SqlDbType.Int).Value = productModel.Id;
+
+
+                command.ExecuteNonQuery();
+            }
         }
 
         public IEnumerable<ProductModel> GetAll()
@@ -47,7 +84,7 @@ namespace Supermarket_mvp._Repositories
                         var productModel = new ProductModel();
                         productModel.Id = (int)reader["Product_Id"];
                         productModel.Name = reader["Product_Name"].ToString();
-                        productModel.Price = (decimal)reader["Product_Price"];
+                        productModel.Price =reader["Product_Price"].ToString(); ;
                         productModel.Stock = (int)reader["Product_Stock"];
                         productModel.Category_Id = (int)reader["Category_Id"];
 
@@ -85,7 +122,7 @@ namespace Supermarket_mvp._Repositories
 
                         productModel.Id = (int)reader["Product_Id"];
                         productModel.Name = reader["Product_Name"].ToString();
-                        productModel.Price = (decimal)reader["Product_Price"];
+                        productModel.Price = reader["Product_Price"].ToString();
                         productModel.Stock = (int)reader["Product_Stock"];
 
                         productList.Add(productModel);
@@ -94,5 +131,6 @@ namespace Supermarket_mvp._Repositories
             }
             return productList;
         }
+
     }
 }

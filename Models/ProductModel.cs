@@ -20,9 +20,9 @@ namespace Supermarket_mvp.Models
 
 
         [DisplayName("Price")]
-        [Range(0.01, double.MaxValue, ErrorMessage = "el precio mayor a 0")]
-        [StringLength(200, MinimumLength = 3, ErrorMessage = "Product name must be between 3 and 200 Characters")]
-        public decimal Price { get; set; }
+        [Required(ErrorMessage = "Product price is required")]
+        [StringLength(50, MinimumLength = 1, ErrorMessage = "Product name must be between 3 and 50 Characters")]
+        public string Price { get; set; }
 
         [DisplayName("Product Stock")]
         [Required(ErrorMessage = "Product Stock is required")]
