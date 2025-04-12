@@ -26,7 +26,55 @@ namespace Supermarket_mvp.Presenters
             this.view.DeleteEvent += DeleteSelectedProduct;
             this.view.SaveEvent += SaveProduct;
             this.view.CancelEvent += CancelProduct;
+            this.view.SetProductBillBindingSource(productBindingSource);
 
+            LoadAllProductList();
+            this.view.Show();
+
+        }
+
+        private void LoadAllProductList()
+        {
+            productList = repository.GetAll();
+            productBindingSource.DataSource = productList;
+        }
+
+        private void CancelProduct(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SaveProduct(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void DeleteSelectedProduct(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void AddNewProduct(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SearchProduct(object? sender, EventArgs e)
+        {
+            bool emptyValue = string.IsNullOrWhiteSpace(this.view.SearchValue);
+            if (emptyValue == false)
+            {
+                productList = repository.GetByValue(this.view.SearchValue);
+            }
+            else
+            {
+                productList = repository.GetAll();
+            }
+            productBindingSource.DataSource = productList;
+        }
+        private void LoadSelectProductToEdit(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
