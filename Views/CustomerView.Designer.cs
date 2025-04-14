@@ -129,6 +129,7 @@
             // 
             // BtnClose
             // 
+            BtnClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnClose.Image = Properties.Resources.cerrar;
             BtnClose.Location = new Point(617, 211);
             BtnClose.Name = "BtnClose";
@@ -138,6 +139,7 @@
             // 
             // BtnDelete
             // 
+            BtnDelete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnDelete.Image = Properties.Resources.delete1;
             BtnDelete.Location = new Point(617, 151);
             BtnDelete.Name = "BtnDelete";
@@ -147,6 +149,7 @@
             // 
             // BtnEdit
             // 
+            BtnEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnEdit.Image = Properties.Resources.edit;
             BtnEdit.Location = new Point(617, 84);
             BtnEdit.Name = "BtnEdit";
@@ -156,6 +159,7 @@
             // 
             // BtnNew
             // 
+            BtnNew.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnNew.Image = Properties.Resources._new;
             BtnNew.Location = new Point(617, 30);
             BtnNew.Name = "BtnNew";
@@ -165,6 +169,7 @@
             // 
             // BtnSearch
             // 
+            BtnSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BtnSearch.Image = Properties.Resources.search_small;
             BtnSearch.Location = new Point(384, 27);
             BtnSearch.Name = "BtnSearch";
@@ -176,6 +181,7 @@
             // 
             DgCustomer.AllowUserToAddRows = false;
             DgCustomer.AllowUserToDeleteRows = false;
+            DgCustomer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             DgCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DgCustomer.Location = new Point(24, 82);
             DgCustomer.Name = "DgCustomer";

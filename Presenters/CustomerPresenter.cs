@@ -28,7 +28,7 @@ namespace Supermarket_mvp.Presenters
             this.view.EditEvent += LoadSelectCustomerToEdit;
             this.view.DeleteEvent += DeleteSelectedCustomer;
             this.view.SaveEvent += SaveCustomer;
-            this.view.CancelEvent += CancelCustomer;
+            this.view.CancelEvent += CancelAction;
 
             this.view.SetCustomerBindingSource(customerBindingSource);
 

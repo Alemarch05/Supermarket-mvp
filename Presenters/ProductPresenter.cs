@@ -41,7 +41,7 @@ namespace Supermarket_mvp.Presenters
 
         private void CancelProduct(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            CleanViewFields();
         }
 
         private void SaveProduct(object? sender, EventArgs e)
@@ -87,10 +87,8 @@ namespace Supermarket_mvp.Presenters
 
         }
 
-        private void CancelProduct()
-        {
-            CleanViewFields();
-        }
+        
+        
 
         private void DeleteSelectedProduct(object? sender, EventArgs e)
         {
@@ -105,13 +103,14 @@ namespace Supermarket_mvp.Presenters
             catch (Exception ex)
             {
                 view.IsSucessful = false;
-                view.Message = "Ha ocuurido una anomalia";
+                view.Message = "Ha ocuurido una anomalia" +ex;
+                
             }
         }
 
         private void AddNewProduct(object? sender, EventArgs e)
         {
-            view.IsEdit = true;
+            view.IsEdit = false;
         }
 
         private void SearchProduct(object? sender, EventArgs e)

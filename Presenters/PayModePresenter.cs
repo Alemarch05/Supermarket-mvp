@@ -26,7 +26,7 @@ namespace Supermarket_mvp.Presenters
             this.view.EditEvent += LoadSelectPayModeToEdit;
             this.view.DeleteEvent += DeleteSelectedPayMode;
             this.view.SaveEvent += SavePayMode;
-            this.view.CancelEvent += CancelPayMode;
+            this.view.CancelEvent += CancelAction;
 
          this.view.SetPayModeBillBindingSource(payModeBindingSource);
 

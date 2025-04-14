@@ -26,7 +26,7 @@ namespace Supermarket_mvp.Presenters
             this.view.EditEvent += LoadSelectCategoryToEdit;
             this.view.DeleteEvent += DeleteSelectedCategory;
             this.view.SaveEvent += SaveCategory;
-            this.view.CancelEvent += CancelCategory;
+            this.view.CancelEvent += CancelAction;
 
             this.view.SetCategoryBillBindingSource(categoryBindingSource);
 

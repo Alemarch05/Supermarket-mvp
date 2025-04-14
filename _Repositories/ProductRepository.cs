@@ -23,7 +23,7 @@ namespace Supermarket_mvp._Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "INSERT INTO Product VALUES(@name,@price,@stock,@categoty_id)";
+                command.CommandText = "INSERT INTO Product VALUES(@name,@price,@stock,@category_id)";
                 command.Parameters.Add("@name", SqlDbType.NVarChar).Value = productModel.Name;
                 command.Parameters.Add("@price", SqlDbType.NVarChar).Value = productModel.Price;
                 command.Parameters.Add("@stock", SqlDbType.Int).Value = productModel.Stock;
@@ -41,7 +41,7 @@ namespace Supermarket_mvp._Repositories
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "DELETE FROM PayMode WHERE Product_Id=@id";
+                command.CommandText = "DELETE FROM Product WHERE Product_Id=@id";
                 command.Parameters.Add("@id", SqlDbType.Int).Value = id;
                 command.ExecuteNonQuery();
             }
@@ -100,20 +100,18 @@ namespace Supermarket_mvp._Repositories
         {
             var productList = new List<ProductModel>();
             int productId = int.TryParse(value, out _) ? Convert.ToInt32(value) : 0;
-            string productValue = value;
+            string productName = value;
             using (var connection = new SqlConnection(connectionString))
             using (var command = new SqlCommand())
 
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = @"SELECT * FROM Products
-                                        WHERE Product_Id = @id 
-                                        OR Product_Name LIKE @value+ '%'
-                                        OR Product_Price LIKE @value+ '%'
-                                        ORDER By Product_Id DESC";
+                command.CommandText = @"SELECT * FROM Product
+                                       WHERE Product_Id=@id or Product_Document LIKE @name + '%' 
+                                        ORDER BY Product_Id DESC";
                 command.Parameters.Add("@id", SqlDbType.Int).Value = productId;
-                command.Parameters.Add("@value", SqlDbType.NVarChar).Value = productValue;
+                command.Parameters.Add("@name", SqlDbType.NVarChar).Value = productName;
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
