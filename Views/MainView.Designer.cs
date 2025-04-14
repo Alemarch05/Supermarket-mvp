@@ -34,12 +34,14 @@
             BtnExit = new Button();
             BtnPayMode = new Button();
             pictureBox1 = new PictureBox();
+            BtnCustomer = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(BtnCustomer);
             panel1.Controls.Add(BtnProduct);
             panel1.Controls.Add(BtnCategory);
             panel1.Controls.Add(BtnExit);
@@ -55,7 +57,7 @@
             // 
             BtnProduct.BackgroundImage = Properties.Resources.products1;
             BtnProduct.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnProduct.Location = new Point(42, 253);
+            BtnProduct.Location = new Point(42, 224);
             BtnProduct.Name = "BtnProduct";
             BtnProduct.Size = new Size(168, 65);
             BtnProduct.TabIndex = 4;
@@ -65,7 +67,7 @@
             // 
             BtnCategory.BackgroundImage = Properties.Resources.category_list_svgrepo_com;
             BtnCategory.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnCategory.Location = new Point(42, 189);
+            BtnCategory.Location = new Point(42, 160);
             BtnCategory.Name = "BtnCategory";
             BtnCategory.Size = new Size(168, 58);
             BtnCategory.TabIndex = 3;
@@ -86,7 +88,7 @@
             // 
             BtnPayMode.BackgroundImage = Properties.Resources.buy11;
             BtnPayMode.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnPayMode.Location = new Point(42, 117);
+            BtnPayMode.Location = new Point(42, 88);
             BtnPayMode.Name = "BtnPayMode";
             BtnPayMode.Size = new Size(168, 66);
             BtnPayMode.TabIndex = 1;
@@ -95,12 +97,22 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.sell;
-            pictureBox1.Location = new Point(19, 25);
+            pictureBox1.Location = new Point(42, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(206, 86);
+            pictureBox1.Size = new Size(178, 70);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            // 
+            // BtnCustomer
+            // 
+            BtnCustomer.BackgroundImage = Properties.Resources.client_svgrepo_com;
+            BtnCustomer.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnCustomer.Location = new Point(42, 295);
+            BtnCustomer.Name = "BtnCustomer";
+            BtnCustomer.Size = new Size(168, 62);
+            BtnCustomer.TabIndex = 5;
+            BtnCustomer.UseVisualStyleBackColor = true;
             // 
             // MainView
             // 
@@ -125,5 +137,6 @@
         private Button BtnExit;
         private Button BtnCategory;
         private Button BtnProduct;
+        private Button BtnCustomer;
     }
 }
