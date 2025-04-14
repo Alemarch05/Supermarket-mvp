@@ -9,8 +9,11 @@ namespace Supermarket_mvp.Views
     interface ICustomerView
     {
         string CustomerId { get; set; }
-        string CustomerName { get; set; }
+        string CustomerDocument { get; set; }
+        string CustomerFirstName { get; set; }
+        string CustomerLastName { get; set; }
         string CustomerAddress { get; set; }
+        string CustomerBirthday { get; set; }
         string CustomerPhone { get; set; }
         string CustomerEmail { get; set; }
         string SearchValue { get; set; }
