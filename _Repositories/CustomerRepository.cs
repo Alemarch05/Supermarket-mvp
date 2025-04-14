@@ -17,17 +17,58 @@ namespace Supermarket_mvp._Repositories
         }
         public void Add(CustomerModel customerModel)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "INSERT INTO Customer VALUES(@document,@firstName,@lastName,@address,@birthday,@phone,@email)";
+                command.Parameters.Add("@document", SqlDbType.NVarChar).Value = customerModel.Document;
+                command.Parameters.Add("@firstName", SqlDbType.NVarChar).Value = customerModel.FirstName;
+                command.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = customerModel.LastName;
+                command.Parameters.Add("@address", SqlDbType.NVarChar).Value = customerModel.Address;
+                command.Parameters.Add("@birthday", SqlDbType.NVarChar).Value = customerModel.Birthday;
+                command.Parameters.Add("@phone", SqlDbType.NVarChar).Value = customerModel.Phone;
+                command.Parameters.Add("@email", SqlDbType.NVarChar).Value = customerModel.Email;
+
+                command.ExecuteNonQuery();
+            }
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "DELETE FROM Customer WHERE Customer_Id=@id";
+                command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                command.ExecuteNonQuery();
+            }
         }
 
         public void Edit(CustomerModel customerModel)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionString))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                
+                command.CommandText = @"UPDATE Customer SET Customer_Document = @document,Customer_First_Name = @firstName,Customer_Last_Name = @lastName,Customer_Address = @address,Customer_BirthDay = @birthday,Customer_Phone_Number = @phone, Customer_Email = @email WHERE Customer_Id = @id";
+                command.Parameters.Add("@document", SqlDbType.NVarChar).Value = customerModel.Document;
+                command.Parameters.Add("@firstName", SqlDbType.NVarChar).Value = customerModel.FirstName;
+                command.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = customerModel.LastName;
+                command.Parameters.Add("@address", SqlDbType.NVarChar).Value = customerModel.Address;
+                command.Parameters.Add("@birthday", SqlDbType.NVarChar).Value = customerModel.Birthday;
+                command.Parameters.Add("@phone", SqlDbType.NVarChar).Value = customerModel.Phone;
+                command.Parameters.Add("@email", SqlDbType.NVarChar).Value = customerModel.Email;
+                command.Parameters.Add("@id", SqlDbType.Int).Value = customerModel.Id;
+
+
+                command.ExecuteNonQuery();
+            }
         }
 
         public IEnumerable<CustomerModel> GetAll()

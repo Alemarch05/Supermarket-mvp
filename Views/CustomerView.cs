@@ -34,6 +34,49 @@ namespace Supermarket_mvp.Views
                     SearchEvent?.Invoke(this, EventArgs.Empty);
                 }
             };
+            BtnNew.Click += delegate
+            {
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPageCustomerList);
+                tabControl1.TabPages.Add(tabPageCustomerDetail);
+                tabPageCustomerDetail.Text = "Add New Customer";
+            };
+            BtnEdit.Click += delegate
+            {
+                EditEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPageCustomerList);
+                tabControl1.TabPages.Add(tabPageCustomerDetail);
+                tabPageCustomerDetail.Text = "Edit Customer";
+            };
+            BtnDelete.Click += delegate
+            {
+                var result = MessageBox.Show("Are you sure you want to delete this Customer?", "Delete Customer", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(message);
+
+                }
+            };
+            BtnSave.Click += delegate
+            {
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+
+                if (isSucessful)
+                {
+                    tabControl1.TabPages.Remove(tabPageCustomerDetail);
+                    tabControl1.TabPages.Add(tabPageCustomerList);
+
+
+                }
+                MessageBox.Show(message);
+            };
+            BtnCancel.Click += delegate
+            {
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+                tabControl1.TabPages.Remove(tabPageCustomerDetail);
+                tabControl1.TabPages.Add(tabPageCustomerList);
+            };
         }
 
         public string CustomerId
